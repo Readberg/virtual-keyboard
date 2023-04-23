@@ -42,9 +42,6 @@
     "key": "Backspace"
   },
   {
-    "key": "Tab"
-  },
-  {
     "key": "q"
   },
   {
@@ -82,12 +79,6 @@
   },
   {
     "key": "\\"
-  },
-  {
-    "key": "Del"
-  },
-  {
-    "key": "CapsLock"
   },
   {
     "key": "a"
@@ -162,10 +153,7 @@
     "key": "^"
   },
   {
-    "key": "Ctrl"
-  },
-  {
-    "key": "Win"
+    "key": "Control"
   },
   {
     "key": "Alt"

@@ -1,4 +1,5 @@
 const body = document.querySelector('.body');
+
 createMain();
 createHeader();
 
@@ -10,14 +11,14 @@ function createHeader() {
 
 const header = document.querySelector('.header');
 
-function createTitle () {
+function createTitle() {
   let title = document.createElement('h1');
   title.textContent = 'Virtual Keyboard';
   header.append(title);
 }
 createTitle();
 
-function createMain () {
+function createMain() {
   let main = document.createElement('main');
   main.classList.add('main');
   body.prepend(main);
@@ -32,7 +33,9 @@ function createTextArea() {
 }
 createTextArea();
 
-function createKeyboard () {
+const textArea = document.querySelector('.textarea');
+
+function createKeyboard() {
   let section = document.createElement('section');
   section.classList.add('keyboard-wrapper');
   main.append(section);
@@ -41,7 +44,7 @@ createKeyboard();
 
 import keys from './keyboard-en.json' assert {type: "json"};
 function createButton() {
-  for(let i = 0; i < keys.length; i++) {
+  for (let i = 0; i < keys.length; i++) {
     let key = document.createElement('div');
     key.classList.add('keyButton');
     key.textContent = keys[i].key;
@@ -53,12 +56,11 @@ createButton();
 document.addEventListener('keydown', (event) => {
   const pressedKey = event.key.toLowerCase();
   const virtualKeys = document.querySelectorAll('.keyButton');
+  textArea.focus();
 
   virtualKeys.forEach((key) => {
     if (key.textContent.toLowerCase() === pressedKey) {
-      key.classList.add('active');
-      const textArea = document.querySelector('.textarea');
-      textArea.value += pressedKey;
+      key.classList.add('active');      
     }
   });
 });
@@ -75,10 +77,29 @@ document.addEventListener('keyup', (event) => {
 });
 
 function inputKey(event) {
+  textArea.focus();
+  
   const key = event.target.textContent;
-  const textArea = document.querySelector('.textarea');
-  textArea.value += key;
+  console.log(key);
+  switch (key) {
+    case 'Enter':
+      textArea.value += '\n';
+      break;
+    case 'Backspace':
+      textArea.value = textArea.value.slice(0, -1);
+      break;
+    case 'Shift':
+    case 'Control':
+    case 'Alt':
+      break;
+    case 'Space':
+      textArea.value = textArea.value + ' ';
+      break;
+    default:
+      textArea.value += key;
+  }
 }
+
 document.querySelectorAll('.keyButton').forEach(btn => {
   btn.addEventListener('click', inputKey);
 })
