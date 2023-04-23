@@ -39,13 +39,16 @@ function createKeyboard () {
 }
 createKeyboard();
 
+import keys from './keyboard-ru.json' assert {type: "json"};
 function createButton() {
-  let key = document.createElement('div');
-  key.classList.add('keyButton');
-  key.textContent = 'Key';
-  document.querySelector('.keyboard-wrapper').append(key);
+  for(let i = 0; i < keys.length; i++) {
+    let key = document.createElement('div');
+    key.classList.add('keyButton');
+    key.textContent = keys[i].key;
+    document.querySelector('.keyboard-wrapper').append(key);
+  }
 }
+createButton();
 
-for(let i = 0; i < 32; i++) {
-  createButton();
-}
+
+
