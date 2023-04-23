@@ -39,7 +39,7 @@ function createKeyboard () {
 }
 createKeyboard();
 
-import keys from './keyboard-ru.json' assert {type: "json"};
+import keys from './keyboard-en.json' assert {type: "json"};
 function createButton() {
   for(let i = 0; i < keys.length; i++) {
     let key = document.createElement('div');

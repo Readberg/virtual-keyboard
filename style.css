@@ -1,3 +1,8 @@
+:root {
+  --main-color: #212B36;
+  --text-color: #ffffff;
+}
+
 .body {
   max-width: 920px;
   margin: 0 auto;
@@ -7,7 +12,7 @@
 }
 
 .main {
-  width: 40vw;
+  width: 55vw;
 }
 
 .textarea {
@@ -19,6 +24,7 @@
 .keyboard-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 5px;
   width: 100%;
   height: auto;
@@ -26,11 +32,16 @@
 
 .keyButton {
   cursor: pointer;
-  padding: 5px;
-  background-color: gray;
-  transition: background-color .5s ease-in-out;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  transition: box-shadow .3s ease-in-out;
+  box-shadow: 0px 1px 0px 1px #000000;
+  border-radius: 3px;
 }
 
 .keyButton:hover {
-  background-color: aquamarine;
+  box-shadow: none;
 }
