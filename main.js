@@ -57,9 +57,12 @@ document.addEventListener('keydown', (event) => {
   virtualKeys.forEach((key) => {
     if (key.textContent.toLowerCase() === pressedKey) {
       key.classList.add('active');
+      const textArea = document.querySelector('.textarea');
+      textArea.value += pressedKey;
     }
   });
 });
+
 document.addEventListener('keyup', (event) => {
   const pressedKey = event.key.toLowerCase();
   const virtualKeys = document.querySelectorAll('.keyButton');
@@ -71,3 +74,11 @@ document.addEventListener('keyup', (event) => {
   });
 });
 
+function inputKey(event) {
+  const key = event.target.textContent;
+  const textArea = document.querySelector('.textarea');
+  textArea.value += key;
+}
+document.querySelectorAll('.keyButton').forEach(btn => {
+  btn.addEventListener('click', inputKey);
+})
