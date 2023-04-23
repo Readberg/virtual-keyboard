@@ -1,0 +1,36 @@
+.body {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  width: 40vw;
+}
+
+.textarea {
+  width: 100%;
+  height: 150px;
+  position: relative;
+}
+
+.keyboard-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.keyButton {
+  cursor: pointer;
+  padding: 5px;
+  background-color: gray;
+  transition: background-color .5s ease-in-out;
+}
+
+.keyButton:hover {
+  background-color: aquamarine;
+}
