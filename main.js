@@ -50,5 +50,24 @@ function createButton() {
 }
 createButton();
 
+document.addEventListener('keydown', (event) => {
+  const pressedKey = event.key.toLowerCase();
+  const virtualKeys = document.querySelectorAll('.keyButton');
 
+  virtualKeys.forEach((key) => {
+    if (key.textContent.toLowerCase() === pressedKey) {
+      key.classList.add('active');
+    }
+  });
+});
+document.addEventListener('keyup', (event) => {
+  const pressedKey = event.key.toLowerCase();
+  const virtualKeys = document.querySelectorAll('.keyButton');
+
+  virtualKeys.forEach((key) => {
+    if (key.textContent.toLowerCase() === pressedKey) {
+      key.classList.remove('active');
+    }
+  });
+});
 
